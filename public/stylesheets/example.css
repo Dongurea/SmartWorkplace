@@ -1,0 +1,40 @@
+#chart2 {
+	width: 250px;
+	height: 150px;
+	margin: 0px;
+}
+
+.chart {
+	font-family: Arial, sans-serif;
+	font-size: 12px;
+}
+
+.axis path,.axis line {
+	fill: none;
+	stroke: #000;
+	shape-rendering: crispEdges;
+}
+.p0 {
+  opacity:0;
+	fill: #1F77B4;
+}
+.P1 {fill: #1F77B4;}
+.P2 {fill: #9467BD;}
+.P3 {fill: #D62728;}
+.P4 {fill: #FF7F0E;}
+.P5 {fill: #2CA02C;}
+
+.p
+.tooltip {                            
+        border-radius: 5px;                                   
+        box-shadow: 0 0 5px #999999;                        
+        color: white;                                             
+        display: none;                                           
+        font-size: 12px; 
+        padding: 7px;                                            
+        position: absolute;
+        text-align: center;                                    
+        width: 80px;
+        z-index: 10; 
+        font-family :sans-serif;
+}    

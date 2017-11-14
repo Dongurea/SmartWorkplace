@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+<style>
+@import url(http://fonts.googleapis.com/earlyaccess/kopubbatang.css);
+.text{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 15px;
+    margin: 5px 5px 10px 30px;
+    color: white;
+}
+#test{
+	color:white;
+	background-color:rgb(100,100,100);
+}
+#title{
+    color: white;
+    margin-left:25px;
+}
+.sign{
+    position: absolute;
+    top: 13px;
+    right: 13px;
+    font-size: 18px;
+}}
+.button {
+    cursor: pointer;
+}
+input[type=text], select {
+    width: 90%;
+    background-color:rgb(171,220,218);
+    padding: 5px 5px;
+    color:black;
+    margin: 2px 0px 2px 36px;
+    display: inline-block;
+    border: 0px solid #ccc;
+    border-radius: 50px;
+    box-sizing: border-box;
+}
+input[type=password], select {
+    width: 90%;
+    background-color:rgb(171,220,218);
+    padding: 5px 5px;
+    color:black;
+    margin: 2px 0px 2px 36px;
+    display: inline-block;
+    border: 0px solid #ccc;
+    border-radius: 50px;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: rgb(0,116,169);
+}
+</style>
+</head>
+
+
+<body>
+
+<div class="container-fluid">
+  <h1></h1>
+  <img class=sign onclick="signup()" src="../images/signup.png">
+  <div class="row main">
+    <div class="col-sm-4" ></div>
+    <div class="col-sm-4" ><br><br><br><br><br><br><br><br><br><br><br><br><br><img id="title" src="../images/title.png"><br><br><br>
+        <div class="row idpwbutton">
+            <div class="col-sm-10">
+                <div class="row id">
+                     <div class="col-sm-1" ><p class="text">ID</p><p class="text">PW</p>
+                     </div>  
+                     <div class="col-sm-10" >
+                     		<input class="input" type="text" id="myId" value="" name="id">
+                     		<input class="input" type="password" id="myPsw" value="" name="pw">
+                     </div>
+                     <div class="col-sm-1" >
+                     		<img type="submit" onclick="login()" class="button" id="loginbutton" src="../images/loginbutton.png">
+                     </div>          
+                </div>
+            </div>    
+            <div class="col-sm-2">
+            	
+            </div>
+        </div>
+    <div class="col-sm-4" ><p id="demo"></p><p id="get"></p></div>
+  </div>
+</div>
+</body>
+
+<script>
+function signup(){
+     window.location = "http://192.168.5.2:3000/smartwp/signuppage";
+}
+function login() {
+    var id=document.getElementById("myId").value;
+    var pw=document.getElementById("myPsw").value;
+    var param="id="+id+"&password="+pw;
+
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function() {
+       if (xhttp.readyState == 4 && xhttp.status == 200) {
+        
+        var xml=xhttp.responseXML;
+        document.getElementById("demo").innerHTML = xhttp.responseText;
+        var arr=JSON.parse(xhttp.responseText);
+        
+        document.getElementById("get").innerHTML =arr[0].signal;
+          if(arr[0].signal=='OK'){
+            window.location = "http://192.168.5.2:3000/smartwp/home";
+          }else{
+            alert("Wrong ID or PW!!");
+          }
+       }
+    };
+  xhttp.open("POST", "http://192.168.5.2:3000/users", true);
+  xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+  xhttp.send(param);
+
+    
+
+}
+
+</script>
+</html>

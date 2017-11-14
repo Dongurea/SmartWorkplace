@@ -1,0 +1,99 @@
+extends layout
+
+block content
+doctype html
+html
+  h
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    link(rel='stylesheet', href='http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css')
+    script(src='https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js')
+    script(src='http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js')
+    style.
+      @import url(http://fonts.googleapis.com/earlyaccess/kopubbatang.css);
+      .text{
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 15px;
+      margin: 5px 5px 10px 30px;
+      color: white;
+      }
+      #test{
+      color:white;
+      background-color:rgb(100,100,100);
+      }
+      #title{
+      color: white;
+      margin-left:25px;
+      }
+      .subtitle{
+      font-size: 10px;
+      color: white;
+      }
+      .button {
+      cursor: pointer;
+      }
+      input[type=text], select {
+      width: 90%;
+      background-color:rgb(171,220,218);
+      padding: 5px 5px;
+      color:black;
+      margin: 2px 0px 2px 36px;
+      display: inline-block;
+      border: 0px solid #ccc;
+      border-radius: 50px;
+      box-sizing: border-box;
+      }
+      input[type=password], select {
+      width: 90%;
+      background-color:rgb(171,220,218);
+      padding: 5px 5px;
+      color:black;
+      margin: 2px 0px 2px 36px;
+      display: inline-block;
+      border: 0px solid #ccc;
+      border-radius: 50px;
+      box-sizing: border-box;
+      }
+      body {
+      background-color: rgb(0,113,188);
+      }
+  body
+    .container-fluid
+      h1
+      p.subtitle Team. Fibonacci
+      .row.main
+        .col-sm-4
+        .col-sm-4
+          br
+          br
+          br
+          br
+          br
+          br
+          br
+          br
+          img#title(src='/images/loginPage/title.png')
+          br
+          br
+          br
+          .row.idpwbutton
+            .col-sm-10
+              .row.id
+                .col-sm-1
+                  p.text ID
+                  p.text PW
+                .col-sm-10
+                  input#myId.input(type='text', value='Put Your ID')
+                  input#myPsw.input(type='password', value='')
+                .col-sm-1
+                  img#loginbutton.button(onclick='myFunction()', src='/images/loginPage/loginbutton.png')
+            .col-sm-2
+          .col-sm-4
+            p#demo
+  script(type="text/javascript").
+    function myFunction() {
+    var id=document.getElementById("myId").value;
+    var pw=document.getElementById("myPsw").value;
+    document.getElementById("demo").innerHTML = "[{ID:"+id+"},{PW:"+pw+"}]";
+    }
+

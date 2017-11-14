@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+  <script type="text/javascript">
+     var a;
+    window.onload=function(){
+      loadDate();
+      
+    };
+
+    function loadDate(){
+
+      var yearS=document.getElementById("yearS");
+      var monthS=document.getElementById("monthS");
+      var dayS=document.getElementById("dayS");
+      var hourS=document.getElementById("hourS");
+      var secondS=document.getElementById("secondS");
+      
+      var yearE=document.getElementById("yearE");
+      var monthE=document.getElementById("monthE");
+      var dayE=document.getElementById("dayE");
+      var hourE=document.getElementById("hourE");
+      var secondE=document.getElementById("secondE");
+      
+      a=opener.document.getElementById('a').innerText;
+      var b=opener.document.getElementById('b').innerText;
+      var c=opener.document.getElementById('c').innerText;
+
+
+      var strArr=b.split(' ');
+      var stimeArr=strArr[4].split(':');
+
+      yearS.value=strArr[3];
+      dayS.value=strArr[2];
+      monthS.value=strArr[1];
+      hourS.value=stimeArr[0];
+      secondS.value=stimeArr[1];
+      document.getElementById("title1").value=a;
+        yearE.value=strArr[3];
+        dayE.value=strArr[2];
+        monthE.value=strArr[1];
+        hourE.value=stimeArr[0];
+        secondE.value=stimeArr[1];
+      if(c!=null){
+        var estrArr=c.split(' ');
+        var etimeArr=estrArr[4].split(':');
+        yearE.value=estrArr[3];
+        dayE.value=estrArr[2];
+        monthE.value=estrArr[1];
+        hourE.value=etimeArr[0];
+        secondE.value=etimeArr[1];
+      }
+
+
+      opener.document.getElementById('a').innerText='';
+      opener.document.getElementById('b').innerText='';
+      opener.document.getElementById('c').innerText='';
+    };
+  </script>
+<style>
+@import url(http://fonts.googleapis.com/earlyaccess/kopubbatang.css);
+.text{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 15px;
+    margin: 5px 5px 10px 30px;
+    color: white;
+}
+#test{
+	color:white;
+	background-color:rgb(100,100,100);
+}
+
+.sign{
+    position: absolute;
+    top: 13px;
+    right: 13px;
+    
+}
+.button {
+    cursor: pointer;
+}
+.window{
+  border-radius: 20px;
+  width: 450px;
+  height: 200px;
+  padding: 20px;
+  background-color: white;
+  margin: 20px;
+}
+input[type=text] {
+    
+    width: 30%;
+    background-color:rgb(230,230,230);
+    padding: 5px 5px;
+    color:black;
+    margin: 2px 0px 2px 0px;
+    display: inline-block;
+    border: 0px solid #ccc;
+    border-radius: 50px;
+    box-sizing: border-box;
+
+}
+
+input[type=password] {
+    width: 30%;
+    background-color:rgb(230,230,230);
+    padding: 5px 5px;
+    color:black;
+    margin: 2px 0px 2px 0px;
+    display: inline-block;
+    border: 0px solid #ccc;
+    border-radius: 50px;
+    box-sizing: border-box;
+
+}
+
+
+.ok{
+     width: 15%;
+    background-color:rgb(0,113,188);
+    padding: 5px 5px;
+    color: white;
+    font-size: 15px;
+    margin: 2px 0px 2px 16px;
+    display: inline-block;
+    border: 0px solid #ccc;
+    border-radius: 50px;
+    box-sizing: border-box;
+    position: absolute;
+    right: 135px;
+    bottom: 5px;
+
+}
+.cancel{
+     width: 15%;
+    background-color:rgb(238,46,94);
+    padding: 5px 5px;
+    color: white;
+    font-size: 15px;
+    margin: 2px 0px 2px 16px;
+    display: inline-block;
+    border: 0px solid #ccc;
+    border-radius: 50px;
+    box-sizing: border-box;
+    position: absolute;
+    right: 35px;
+    bottom: 5px;
+
+}
+.delete{
+     width: 15%;
+    background-color:gray;
+    padding: 5px 5px;
+    color: white;
+    font-size: 15px;
+    margin: 2px 0px 2px 16px;
+    display: inline-block;
+    border: 0px solid #ccc;
+    border-radius: 50px;
+    box-sizing: border-box;
+    position: absolute;
+    right: 235px;
+    bottom: 5px;
+
+}
+input[type=phone], select[type=phone] {
+    width: 60%;
+    background-color:rgb(230,230,230);
+    padding: 5px 5px;
+    color:black;
+    margin: 2px 0px 2px 0px;
+    display: inline-block;
+    border: 0px solid #ccc;
+    border-radius: 50px;
+    box-sizing: border-box;
+
+}
+input[type=mail], select[type=mail] {
+    width: 15%;
+    background-color:rgb(230,230,230);
+    padding: 5px 5px;
+    color:black;
+    margin: 2px 0px 2px 0px;
+    display: inline-block;
+    border: 0px solid #ccc;
+    border-radius: 50px;
+    box-sizing: border-box;
+
+}
+
+body {
+    background-color: rgb(0,113,188);
+    background-size: 500px 1000px;
+}
+</style>
+</head>
+
+
+<body>
+
+<div class="container-fluid">
+  <h1></h1>
+  <div class="row main">
+    <div class="col-sm-4" ></div>
+    <div class="col-sm-4" >
+      <div class="window">
+      
+      NEW Schedule title:<input class="input" type="phone" id="title1" value=""><br>
+      <br>
+      Start:<select type="yearS" id="yearS">
+                 <option value="2016">2016</option>
+                 <option value="2017">2017</option>
+                 <option value="2018">2018</option>
+                 <option value="2019">2019</option>
+                 <option value="2020">2020</option>
+              </select>
+              <select type="monthS" id="monthS" >
+                 <option value="Jan">01</option>
+                 <option value="Feb">02</option>
+                 <option value="Mar">03</option>
+                 <option value="Apr">04</option>
+                 <option value="May">05</option>
+                 <option value="Jun">06</option>
+                 <option value="Jul">07</option>
+                 <option value="Aug">08</option>
+                 <option value="Sep">09</option>
+                 <option value="Oct">10</option>
+                 <option value="Nov">11</option>
+                 <option value="Dec">12</option>
+
+              </select>
+              <select type="dayS" id="dayS" >
+                 <option value="01">01</option>
+                 <option value="02">02</option>
+                 <option value="03">03</option>
+                 <option value="04">04</option>
+                 <option value="05">05</option>
+                 <option value="06">06</option>
+                 <option value="07">07</option>
+                 <option value="08">08</option>
+                 <option value="09">09</option>
+                 <option value="10">10</option>
+
+                 <option value="11">11</option>
+                 <option value="12">12</option>
+                 <option value="13">13</option>
+                 <option value="14">14</option>
+                 <option value="15">15</option>
+                 <option value="16">16</option>
+                 <option value="17">17</option>
+                 <option value="18">18</option>
+                 <option value="19">19</option>
+                 <option value="20">20</option>
+
+                 <option value="21">21</option>
+                 <option value="22">22</option>
+                 <option value="23">23</option>
+                 <option value="24">24</option>
+                 <option value="25">25</option>
+                 <option value="26">26</option>
+                 <option value="27">27</option>
+                 <option value="28">28</option>
+                 <option value="29">29</option>
+                 <option value="30">30</option>
+                 <option value="31">31</option>
+              </select>
+              ::
+              <select type="hourS" id="hourS" >
+                 <option value="--">--</option>
+                 <option value="01">01</option>
+                 <option value="02">02</option>
+                 <option value="03">03</option>
+                 <option value="04">04</option>
+                 <option value="05">05</option>
+                 <option value="06">06</option>
+                 <option value="07">07</option>
+                 <option value="08">08</option>
+                 <option value="09">09</option>
+                 <option value="10">10</option>
+                 <option value="11">11</option>
+                 <option value="12">12</option>
+                 <option value="13">13</option>
+                 <option value="14">14</option>
+                 <option value="15">15</option>
+                 <option value="16">16</option>
+                 <option value="17">17</option>
+                 <option value="18">18</option>
+                 <option value="19">19</option>
+                 <option value="20">20</option>
+                 <option value="21">21</option>
+                 <option value="22">22</option>
+                 <option value="23">23</option>
+                 <option value="24">24</option>
+              </select>
+              <select type="secondS" id="secondS" >
+                 <option value="--">--</option>
+                 <option value="00">00</option>
+                 <option value="10">10</option>
+                 <option value="20">20</option>
+                 <option value="30">30</option>
+                 <option value="40">40</option>
+                 <option value="50">50</option>
+              </select>
+              <br>
+              <br>
+      End:<select type="yearE" id="yearE" >
+                 <option value="2016">2016</option>
+                 <option value="2017">2017</option>
+                 <option value="2018">2018</option>
+                 <option value="2019">2019</option>
+                 <option value="2020">2020</option>
+              </select>
+              <select type="monthE" id="monthE" >
+                 <option value="Jan">01</option>
+                 <option value="Feb">02</option>
+                 <option value="Mar">03</option>
+                 <option value="Apr">04</option>
+                 <option value="May">05</option>
+                 <option value="Jun">06</option>
+                 <option value="Jul">07</option>
+                 <option value="Aug">08</option>
+                 <option value="Sep">09</option>
+                 <option value="Oct">10</option>
+                 <option value="Nov">11</option>
+                 <option value="Dec">12</option>
+              </select>
+              <select type="dayE" id="dayE" >
+                 <option value="01">01</option>
+                 <option value="02">02</option>
+                 <option value="03">03</option>
+                 <option value="04">04</option>
+                 <option value="05">05</option>
+                 <option value="06">06</option>
+                 <option value="07">07</option>
+                 <option value="08">08</option>
+                 <option value="09">09</option>
+                 <option value="10">10</option>
+
+                 <option value="11">11</option>
+                 <option value="12">12</option>
+                 <option value="13">13</option>
+                 <option value="14">14</option>
+                 <option value="15">15</option>
+                 <option value="16">16</option>
+                 <option value="17">17</option>
+                 <option value="18">18</option>
+                 <option value="19">19</option>
+                 <option value="20">20</option>
+
+                 <option value="21">21</option>
+                 <option value="22">22</option>
+                 <option value="23">23</option>
+                 <option value="24">24</option>
+                 <option value="25">25</option>
+                 <option value="26">26</option>
+                 <option value="27">27</option>
+                 <option value="28">28</option>
+                 <option value="29">29</option>
+                 <option value="30">30</option>
+                 <option value="31">31</option>
+                </select>
+                ::
+                <select type="hourE" id="hourE">
+                 <option value="--">--</option>
+                 <option value="01">01</option>
+                 <option value="02">02</option>
+                 <option value="03">03</option>
+                 <option value="04">04</option>
+                 <option value="05">05</option>
+                 <option value="06">06</option>
+                 <option value="07">07</option>
+                 <option value="08">08</option>
+                 <option value="09">09</option>
+                 <option value="10">10</option>
+                 <option value="11">11</option>
+                 <option value="12">12</option>
+                 <option value="13">13</option>
+                 <option value="14">14</option>
+                 <option value="15">15</option>
+                 <option value="16">16</option>
+                 <option value="17">17</option>
+                 <option value="18">18</option>
+                 <option value="19">19</option>
+                 <option value="20">20</option>
+                 <option value="21">21</option>
+                 <option value="22">22</option>
+                 <option value="23">23</option>
+                 <option value="24">24</option>
+                </select>
+                <select type="secondE" id="secondE">
+                 <option value="--">--</option>
+                 <option value="00">00</option>
+                 <option value="10">10</option>
+                 <option value="20">20</option>
+                 <option value="30">30</option>
+                 <option value="40">40</option>
+                 <option value="50">50</option>
+                </select>
+              <br>
+        <button onclick="closeCancel()" class="cancel"> Cancel</button>        
+        <a ><button onclick="closeOK()" class="ok"> Save</button></a>
+        <button onclick="deleteS()" class="delete"> Delete</button>
+        
+      </div>
+    </div>
+    <div class="col-sm-4" ></div>
+  </div>
+</div>
+</body>
+
+<script>
+function closeCancel(){
+    window.close();
+}
+
+$("#selectBox option:selected").val();
+
+function closeOK(){
+
+    alert(setTest());
+    self.close();
+
+}
+function deleteS(){
+    if(confirm('Are you sure to delete this schedule?')==true){
+        window.opener.document.getElementById("a").innerText='#%:delete%#';
+        deleteDataS();
+        self.close();
+    }else{
+    
+    }
+}
+function setTest(){
+  var cnt=0;
+  var yearS=document.getElementById("yearS").value;
+  var monthS=document.getElementById("monthS").value;
+  var dayS=document.getElementById("dayS").value;
+
+  var hourS=document.getElementById("hourS").value;
+  var secondS=document.getElementById("secondS").value;
+
+  var yearE=document.getElementById("yearE").value;
+  var monthE=document.getElementById("monthE").value;
+  var dayE=document.getElementById("dayE").value;
+
+  var hourE=document.getElementById("hourE").value;
+  var secondE=document.getElementById("secondE").value;
+
+  switch(monthS){
+    case 'Jan': monthS='01'; break;
+    case 'Feb': monthS='02'; break;
+    case 'Mar': monthS='03'; break;
+    case 'Apr': monthS='04'; break;
+    case 'May': monthS='05'; break;
+    case 'Jun': monthS='06'; break;
+    case 'Jul': monthS='07'; break;
+    case 'Aug': monthS='08'; break;
+    case 'Sep': monthS='09'; break;
+    case 'Oct': monthS='10'; break;
+    case 'Nov': monthS='11'; break;
+    case 'Dec': monthS='12'; break;
+  }
+  switch(monthE){
+    case 'Jan': monthE='01'; break;
+    case 'Feb': monthE='02'; break;
+    case 'Mar': monthE='03'; break;
+    case 'Apr': monthE='04'; break;
+    case 'May': monthE='05'; break;
+    case 'Jun': monthE='06'; break;
+    case 'Jul': monthE='07'; break;
+    case 'Aug': monthE='08'; break;
+    case 'Sep': monthE='09'; break;
+    case 'Oct': monthE='10'; break;
+    case 'Nov': monthE='11'; break;
+    case 'Dec': monthE='12'; break;
+  }
+  var title=document.getElementById("title1").value;
+  var start=yearS+"-"+monthS+"-"+dayS+" "+hourS+":"+secondS+":00";
+  var end=yearE+"-"+monthE+"-"+dayE+" "+hourE+":"+secondE+":00";
+  var url;
+
+  var str="{title:'"+title+"' ,start:'"+start+"' ,end:'"+end+"'}";
+
+  window.opener.document.getElementById("a").innerText=title;
+  window.opener.document.getElementById("b").innerText=start;
+  window.opener.document.getElementById("c").innerText=end;
+  updateCal(a,title,start,end);
+
+  return str;
+}
+
+function deleteDataS(){
+var param="oldtitle="+a;
+var xmlHttp = new XMLHttpRequest();
+    xmlHttp.open("PUT", "http://192.168.5.2:3000/calendar/deleteSchedule", true);
+    xmlHttp.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
+    xmlHttp.onreadystatechange =function() {
+      if(xmlHttp.readyState == 4 && xmlHttp.status ==200) {
+        xmlDoc = xmlHttp.responseText;
+        param = JSON.parse(xmlDoc);
+        console.log( "dataopen: "+param);
+      }//end of 200
+    }//end of readystate
+  xmlHttp.send(param);
+}  
+function updateCal(oldtitle,title,start,end){
+var param="oldtitle="+oldtitle+"&title="+title+"&start="+start+"&end="+end;
+var xmlHttp = new XMLHttpRequest();
+    xmlHttp.open("PUT", "http://192.168.5.2:3000/calendar/changeSchedule", true);
+    xmlHttp.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
+    xmlHttp.onreadystatechange =function() {
+      if(xmlHttp.readyState == 4 && xmlHttp.status ==200) {
+        xmlDoc = xmlHttp.responseText;
+        param = JSON.parse(xmlDoc);
+        console.log( "dataopen: "+param);
+      }//end of 200
+    }//end of readystate
+  xmlHttp.send(param);
+}
+
+</script>
+</html>

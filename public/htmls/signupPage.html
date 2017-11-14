@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+<style>
+.text{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 15px;
+    margin: 5px 5px 10px 30px;
+    color: white;
+}
+#test{
+	color:white;
+	background-color:rgb(100,100,100);
+}
+#title{
+    color: white;
+    margin-left:25px;
+}
+.sign{
+    position: absolute;
+    top: 13px;
+    right: 13px;
+    
+}
+.button {
+    cursor: pointer;
+}
+.window{
+  border-radius: 20px;
+  width: 100%;
+  height: 100%;
+  padding: 50px;
+  background-color: white;
+  margin: 20px 0px 0px 0px;
+}
+input[type=text] {
+    
+    width: 32.7%;
+    background-color:rgb(230,230,230);
+    padding: 5px 5px;
+    color:black;
+    margin: 2px 0px 2px 0px;
+    display: inline-block;
+    border: 0px solid #ccc;
+    border-radius: 50px;
+    box-sizing: border-box;
+
+}
+
+input[type=password] {
+    width: 32.7%;
+    background-color:rgb(230,230,230);
+    padding: 5px 5px;
+    color:black;
+    margin: 2px 0px 2px 0px;
+    display: inline-block;
+    border: 0px solid #ccc;
+    border-radius: 50px;
+    box-sizing: border-box;
+
+}
+
+
+.ok{
+     width: 10%;
+    background-color:rgb(0,113,188);
+    padding: 5px 5px;
+    color: white;
+    font-size: 15px;
+    margin: 2px 0px 2px 16px;
+    display: inline-block;
+    border: 0px solid #ccc;
+    border-radius: 50px;
+    box-sizing: border-box;
+    position: absolute;
+    right: 60px;
+    bottom: 30px;
+}
+.cancel{
+     width: 10%;
+    background-color:rgb(238,46,94);
+    padding: 5px 5px;
+    color: white;
+    font-size: 15px;
+    margin: 2px 0px 2px 16px;
+    display: inline-block;
+    border: 0px solid #ccc;
+    border-radius: 50px;
+    box-sizing: border-box;
+    position: absolute;
+    right: 180px;
+    bottom: 30px;
+}
+div[type=text]{
+    margin: 2px 0px 2px 0px;
+
+}
+input[type=phone], select[type=phone] {
+    width: 10%;
+    background-color:rgb(230,230,230);
+    padding: 5px 5px;
+    color:black;
+    margin: 2px 0px 2px 0px;
+    display: inline-block;
+    border: 0px solid #ccc;
+    border-radius: 50px;
+    box-sizing: border-box;
+
+}
+input[type=mail], select[type=mail] {
+    width: 15.2%;
+    background-color:rgb(230,230,230);
+    padding: 5px 5px;
+    color:black;
+    margin: 2px 0px 2px 0px;
+    display: inline-block;
+    border: 0px solid #ccc;
+    border-radius: 50px;
+    box-sizing: border-box;
+
+}
+
+body {
+    background-color: rgb(0,116,169);
+}
+</style>
+</head>
+
+
+<body>
+
+<div class="container-fluid">
+  <h1></h1>
+  <div class="row main">
+    <div class="col-sm-3" ></div>
+    <div class="col-sm-6" >
+      <div class="window">
+      <div class="row">
+        <div class="col-sm-1" type="text">ID</div>
+        <div class="col-sm-11"><input class="input" type="text" id="id" value="" name="id"></div>
+      </div>
+      <div class="row">  
+        <div class="col-sm-1" type="text">PW </div>
+        <div class="col-sm-11"><input class="input" type="password" id="pw" value="" name="pw"></div>
+      </div>
+      <div class="row">  
+        <div class="col-sm-1" type="text">Phone </div>
+        <div class="col-sm-11"> 
+              <select type="phone" id="phoneS">
+                 <option value="02">02</option>
+                 <option value="031">031</option>
+                 <option value="070">070</option>
+                 <option value="080">080</option>
+                 <option value="010">010</option>
+                 <option value="011">011</option>
+              </select>
+                -
+               <input class="input" type="phone" id="phoneM" value="" name="phone">-
+               <input class="input" type="phone" id="phoneE" value="" name="phone"></div>
+       </div>  
+       <div class="row">      
+        <div class="col-sm-1" type="text">e-mail </div>
+        <div class="col-sm-11">
+              <input class="input" type="mail" id="emailS" value="" name="e-mail">@
+                <select type="mail" id="emailE">
+                 <option value="naver.com">naver.com</option>
+                 <option value="daum.net">daum.net</option>
+              </select>
+        </div>
+       </div>
+
+                <br>
+        <button onclick="gohomeCancel()" class="cancel"> Cancel</button>        
+        <button onclick="gohomeOK()" class="ok"> OK</button>
+      </div>
+    </div>
+    <div class="col-sm-3" ></div>
+  </div>
+</div>
+</body>
+
+<script>
+function gohomeCancel(){
+  window.location = "http://192.168.5.2:3000/smartwp/login";
+
+}
+function gohomeOK(){
+
+  var id=document.getElementById('id').value;
+  var pw=document.getElementById('pw').value;
+  var phoneS=document.getElementById('phoneS').value;
+  var phoneM=document.getElementById('phoneM').value;
+  var phoneE=document.getElementById('phoneE').value;
+  var emailS=document.getElementById('emailS').value;
+  var emailE=document.getElementById('emailE').value;
+  
+  var phone=phoneS+phoneM+phoneE;
+  var email=emailS+"@"+emailE;
+
+
+  var param = "id="+id+"&password="+pw+"&tel="+phone+"&email="+email;
+    var xmlHttp = new XMLHttpRequest();
+    xmlHttp.open("POST", "http://192.168.5.2:3000/adduser", true);
+    xmlHttp.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
+    xmlHttp.onreadystatechange =function() {
+      if(xmlHttp.readyState == 4 && xmlHttp.status ==200) {
+
+        //document.getElementById("demo").innerHTML = xmlHttp.responseText;
+        var arr=JSON.parse(xmlHttp.responseText);
+        
+        //document.getElementById("get").innerHTML =arr[0].signal;
+          if(arr[0].signal=='OK'){
+            alert("Compeletly made a new count!");
+            window.location = "http://192.168.5.2:3000/smartwp/login";
+          }else{
+            alert("Something wrong!!");
+          }
+       }
+    }
+    xmlHttp.send(param);
+
+}
+</script>
+</html>

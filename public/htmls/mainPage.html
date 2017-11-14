@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+
+  <script type="text/javascript">
+     window.onload=function(){
+       loadData();
+       loadStatus();
+     };
+  </script>
+  <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.12.2.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+<style>
+.title{
+  margin: 0px 30px 30px 30px;
+}
+#title{
+  margin-top: 20px;
+}
+#myNavbar{
+  left:30px;
+  padding: 0px 0px 0px 0px;
+  margin: 0px 0px 0px 0px;
+}
+#userid{
+  margin: 30px 30px 30px 30px;
+  font-size:15px;
+  color:white;
+}
+.device{
+  height:100%;
+  margin: 30px 30px 30px 30px;
+  background-image: url("../images/devicePanel.png");
+  background-size: initial;
+  background-repeat: no-repeat;
+  
+}
+li{
+  opacity: 1;
+}
+p{
+  position: absolute
+  
+  top:1px;
+  size: 500px 250px;
+}
+.nav{
+  height: 85px;
+}
+.menubar{
+  z-index:-200;
+  height: 100%;
+}
+  .navbar {
+    bottom:0px;
+      height: 50%;
+      width: 280px;
+      margin-bottom: 0;
+      background-color: rgb(0,47,65);
+      z-index: 9999;
+      border: 0;
+      font-size: 20px !important;
+      font-color: WHITE; 
+      line-height: 3.8 !important;
+      letter-spacing: 4px;
+      border-radius: 0;
+      font-family: Montserrat, sans-serif;
+      position: fixed;
+  }
+.dev{
+  position: absolute;
+  left:0px;
+  top:0px;
+  z-index: -1;
+}
+.devn{
+  position: absolute;
+  left:0px;
+  top:30px;
+  z-index: 1;
+}
+.menu{
+  margin: 45px 25px 25px 75px;
+  height: 80px;
+  width: 317px;
+  background-image: url(../images/devicePanel.png);
+  background-repeat: no-repeat;
+  font-size: 18px;
+  color:rgb(60,124,167);
+}
+.devname{
+  height: 80px;
+  width: 120px;
+  margin: 14px 0px 0px 20px;
+  color:rgb(60,124,167);
+  padding: 0px 0px 0px 10px;
+}
+.devimg{
+  height: 80px;
+  width: 80px;
+  margin: 25px 0px 0px 20px;
+  padding: 0px 0px 0px 0px;
+}
+.devimgL{
+  height: 80px;
+  width: 80px;
+  margin: 25px 0px 0px 20px;
+  padding: 0px 0px 0px 0px;
+  position: absolute;
+  left:278px;
+}
+.devdata{
+  height: 80px;
+  width: 0px;
+  margin: 15px 0px 0px 5px;
+  font-size:33px;
+  color:rgb(28,117,188);
+  padding: 0px 10px 0px 0px;
+}
+.devdataL{
+  height: 80px;
+  width: 0px;
+  margin: 15px 0px 0px 10px;
+  font-size:33px;
+  color:rgb(28,117,188);
+  padding: 0px 10px 0px 0px;
+}
+.devsym{
+  height: 80px;
+  width: 20px;
+  margin: 24px 0px 0px 28px;
+  font-size:15px;
+  color:rgb(28,117,188);
+  padding: 0px 0px 0px 0px;
+  
+}
+.titleimage{
+  height: 400px;
+}
+.widthfull{
+  width: 100%;
+}
+.row{
+  opacity: 1;
+}
+.hrow{
+  opacity: 0.6;
+}
+.section1{
+  margin: 70px 10px 20px 10px;
+  height: 600px;
+  width: 64%;
+  background-color: white;
+  opacity: 0.6;
+  border-radius: 5px;
+}
+.section2{
+  margin: 70px 10px 20px 0px;
+  height: 600px;
+  width: 30%;
+  background-color: white;
+  opacity: 0.6;
+  border-radius: 5px;
+}
+.section3{
+  margin: 10px 10px 10px 10px;
+  height: 180px;
+  width: 95%;
+  background-color: white;
+  opacity: 0.6;
+  border-radius: 5px;
+}
+input[type=text], select {
+    width: 90%;
+    background-color:rgb(171,220,218);
+    padding: 5px 5px;
+    color:black;
+    margin: 2px 0px 2px 30px;
+    display: inline-block;
+    border: 0px solid #ccc;
+    border-radius: 50px;
+    box-sizing: border-box;
+}
+body {
+    background-image: url(../images/backGround.png);
+    background-color: rgb(0,47,65);
+    background-size: 100%;
+    background-attachment: fixed;
+    background-position: 50% 70%; 
+    background-repeat:no-repeat;
+}
+
+
+</style>
+
+
+
+
+</head>
+
+
+<body>
+<nav class="menubar widthfull">
+  <div class="row">
+    <div class="col-md-3 titleimage" >
+      <button type="button" class="navbar-toggle"  data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+      <a class="title" href="http://192.168.5.2:3000/smartwp/home"><img id="title" src="../images/mainTitle.png"></a>
+      <div id="userid">Welcome, abc!!  
+        <img onclick="logout()" src="../images/logout.png" height="6%" width="6%">
+      </div>
+      <nav class="navbar">
+       <div class="hrow">
+        <div class="titlediv" >
+          <button type="button" class="navbar-toggle"  data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+          </button>
+        </div>
+        <br>
+        <div class="boarddiv" id="myNavbar1">
+      <ul class="nav">
+        <li><a href="http://192.168.5.2:3000/smartwp/calendar">Schedule</a></li>
+      </ul>
+        </div>
+        <div class="boarddiv" id="myNavbar2">
+      <ul class="nav">
+        <li><a href="http://192.168.5.2:3000/smartwp/posture">Posture data</a></li>
+      </ul>
+        </div>
+        <div class="boarddiv" id="myNavbar3">
+      <ul class="nav">
+        <li><a href="http://192.168.5.2:3000/smartwp/setting">Device setting</a></li>
+      </ul>
+        </div>
+       </div>
+      </nav>
+    </div>
+    <div class="col-md-6 ">
+
+    </div>
+    <div class="col-md-3" id="myNavbar">
+        <div class="menu">
+          <div class="col-md-4 devname" >
+            <p type="devP" id="devn1">Device1 | <br>Humidifier </p>
+          </div>
+          <div class="col-md-2 devdata" id="devst0">
+            00
+          </div>
+          <div class="col-md-1 devsym">
+            %
+          </div>
+          <div class="col-md-2 devimg">
+            <img onclick="changePower('humidifier','1')" class="devimgc" id="dev1">
+          </div>
+        </div>
+        <div class="menu">
+          <div class="col-md-4 devname" >
+            <p type="devP" id="devn2">Device2 | <br>Fan</p>
+          </div>
+          <div class="col-md-2 devdata"  id="devst1">
+            00
+          </div>
+          <div class="col-md-1 devsym">
+            'C
+          </div>
+          <div class="col-md-2 devimg">
+            <img onclick="changePower('fan','2')" id="dev2">
+          </div>
+        </div>
+        <div class="menu">
+          <div class="col-md-4 devname" >
+            <p type="devP" id="devn3">Device3 | <br>Light</p>
+          </div>
+          <div class="col-md-2 devdataL" id="devst2">
+            <img id="lightbulb" height=46px width=35px>
+          </div>
+          <div class="col-md-1 devsym">
+            
+          </div>
+          <div class="col-md-2 devimgL">
+            <img onclick="changePower('ledstand','3')" id="dev3" >
+          </div>
+        </div>
+    </div>
+  </div>
+</nav>
+
+
+</body>
+<script>
+function loadData(){
+    var xmlHttp = new XMLHttpRequest();
+    xmlHttp.open("GET", "http://192.168.5.2:3000/switch", true);
+    xmlHttp.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
+    xmlHttp.onreadystatechange =function() {
+      if(xmlHttp.readyState == 4 && xmlHttp.status ==200) {
+        xmlDoc = xmlHttp.responseText;
+      param = JSON.parse(xmlDoc);
+      console.log( "dataopen: "+param);
+          if(param[0].fan=="on"){
+            console.log("dev2 Power: on");
+            document.getElementById("dev2").setAttribute("src","../images/togglebutton_on.png");
+          } 
+          else if(param[0].fan=="off"){
+            console.log("dev2 Power: off");
+            document.getElementById("dev2").setAttribute("src","../images/togglebutton_off.png");
+          }
+          if(param[0].humidifier=="on"){
+            console.log("dev1 Power: on");
+            document.getElementById("dev1").setAttribute("src","../images/togglebutton_on.png");
+          } 
+          else if(param[0].humidifier=="off"){
+            console.log("dev1 Power: off");
+            document.getElementById("dev1").setAttribute("src","../images/togglebutton_off.png");
+          }
+          if(param[0].ledStand=="on"){
+            console.log("dev3 Power: on");
+            document.getElementById("dev3").setAttribute("src","../images/togglebutton_on.png");
+          } 
+          else if(param[0].ledStand=="off"){
+            console.log("dev3 Power: off");
+            document.getElementById("dev3").setAttribute("src","../images/togglebutton_off.png");
+          }
+      }  
+    }
+   xmlHttp.send();
+ }
+
+ function changeSwitchData(device, power){
+    var param = "status="+power+"&device="+device;
+    var xmlHttp = new XMLHttpRequest();
+
+    xmlHttp.open("POST", "http://192.168.5.2:3000/switch", true);
+    xmlHttp.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
+    xmlHttp.onreadystatechange =function() {
+      if(xmlHttp.readyState == 4 && xmlHttp.status ==200) {
+        console.log(xmlHttp.responseText);
+      }
+    }
+    xmlHttp.send(param);
+}
+
+
+ function changePower(device, eid) {
+  var dev=document.getElementById("dev"+eid);
+  var power="on";
+  if (dev.src.match("../images/togglebutton_on")) {
+        dev.src = "../images/togglebutton_off.png";
+        power="off";
+    } else {
+        dev.src = "../images/togglebutton_on.png";
+        power="on";
+    }
+  changeSwitchData(device,power);
+}
+function loaddht(){
+  var xmlHttp = new XMLHttpRequest();
+    xmlHttp.open("GET", "http://192.168.5.2:3000/sensor/dht", true);
+    xmlHttp.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
+    xmlHttp.onreadystatechange =function() {
+      if(xmlHttp.readyState == 4 && xmlHttp.status ==200) {
+        xmlDoc = xmlHttp.responseText;
+        param = JSON.parse(xmlDoc);
+        console.log( "dataopen: "+param);
+          document.getElementById("devst0").innerText=param[0].humidity;
+          document.getElementById("devst1").innerText=param[0].temperature;
+      }//end of 200
+    }//end of readystate
+  xmlHttp.send();
+}
+ function loadStatus(){
+  loaddht();
+  
+  var xmlHttp = new XMLHttpRequest();
+    xmlHttp.open("GET", "http://192.168.5.2:3000/sensor/light", true);
+    xmlHttp.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
+    xmlHttp.onreadystatechange =function() {
+      if(xmlHttp.readyState == 4 && xmlHttp.status ==200) {
+        xmlDoc = xmlHttp.responseText;
+        param = JSON.parse(xmlDoc);
+        console.log( "dataopen: "+param);
+        if(param[0].lightStatus=="bright"){
+          document.getElementById("lightbulb").src="../images/lightbulb_on.png";
+        }else if(param[0].lightStatus=="dark"){
+          document.getElementById("lightbulb").src="../images/lightbulb_off.png";
+        }
+      }//end of 200
+    }//end of readystate
+  xmlHttp.send();
+
+  setTimeout(function(){loadStatus();},5000);
+}
+
+function logout(){
+ var xmlHttp = new XMLHttpRequest();
+    xmlHttp.open("GET", "http://192.168.5.12:3000/mysql/logout", true);
+    xmlHttp.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
+    xmlHttp.onreadystatechange =function() {
+      if(xmlHttp.readyState == 4 && xmlHttp.status ==200) {
+      }//end of 200
+    }//end of readystate
+  xmlHttp.send();
+
+
+  window.location="http://192.168.5.2:3000/smartwp/login";
+
+}
+</script>
+
+
+</html>
